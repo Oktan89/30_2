@@ -13,7 +13,7 @@ std::pair<bool, std::string> findBetweenTags(const std::string &str, const std::
    begin =  str.find(open_tag);
     if(str.npos != begin)
     {
-        end =  str.find(close_tag);
+        end =  str.find(close_tag, begin+open_tag.size()-1);
         if(str.npos == end)
             return std::make_pair(false, "Not found " + close_tag); 
     }
